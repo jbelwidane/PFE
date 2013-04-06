@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>gestion-agricole</groupId>
+		<artifactId>gestion-agricole-master</artifactId>
+		<version>0.1</version>
+		<relativePath>../gestion-agricole-master/pom.xml</relativePath>
+	</parent>
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>gestion-agricole-ear</artifactId>
+	<name>Gestion Agricole EAR</name>
+	<packaging>ear</packaging>
+        <version>${project.version}</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>gestion-agricole</groupId>
+			<artifactId>gestion-agricole-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>gestion-agricole</groupId>
+			<artifactId>gestion-agricole-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<version>6</version>
+					<skinnyWars>true</skinnyWars>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>gestion-agricole</groupId>
+							<artifactId>gestion-agricole-web</artifactId>
+							<contextRoot>/flahapp</contextRoot>
+							<bundleFileName>gestion-agricole-web.war</bundleFileName>
+						</webModule>
+						<ejbModule>
+							<groupId>gestion-agricole</groupId>
+							<artifactId>gestion-agricole-ejb</artifactId>
+							<bundleFileName>gestion-agricole-ejb.jar</bundleFileName>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+	                <groupId>org.jboss.as.plugins</groupId>
+	                <artifactId>jboss-as-maven-plugin</artifactId>
+	                <version>7.1.1.Final</version>
+					<executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+	                        </goals>
+							<configuration>
+								<hostname>localhost</hostname>
+								<port>9999</port>
+								<username>jaafar</username>
+								<password>Ja3far</password>
+							</configuration>
+                    </execution>
+                	</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

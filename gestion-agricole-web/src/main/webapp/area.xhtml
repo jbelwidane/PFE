@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default/template.xhtml">
+
+	<ui:define name="notifications">
+<!-- 		<ui:include src="component/notifications.xhtml" /> -->
+	</ui:define>
+	<ui:define name="inbox">
+<!-- 		<ui:include src="component/inbox.xhtml" /> -->
+	</ui:define>
+	<ui:define name="tasks">
+<!-- 		<ui:include src="component/tasks.xhtml" /> -->
+	</ui:define>
+	<ui:define name="account">
+		<ui:include src="component/account.xhtml" />
+	</ui:define>
+	<ui:define name="breadcrumb">
+		<ui:include src="component/breadcrumb.xhtml">
+			<ui:param name="menuName" value="Parametres" />
+			<ui:param name="menuPath" value="configuration.jsf" />
+			<ui:param name="pageName" value="Zones" />
+			<ui:param name="pagePath" value="area.jsf" />
+		</ui:include>
+	</ui:define>
+	<ui:define name="sidebar">
+		<ui:include src="component/sidebar.xhtml">
+			<ui:param name="currentMenu" value="configuration" />
+			<ui:param name="currentPage" value="area" />
+		</ui:include>
+	</ui:define>
+	<ui:define name="title">
+		<ui:include src="component/title.xhtml">
+			<ui:param name="title" value="Zone " />
+			<ui:param name="subTitle" value="Gestion des Zones " />
+		</ui:include>
+	</ui:define>
+
+
+	<ui:define name="content">
+	
+	<div class="span12">
+		<!-- BEGIN EXAMPLE TABLE PORTLET-->
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<h4><i class="icon-reorder"></i>Liste des areas</h4>
+				<div class="tools">
+					<p:commandLink id="addButton"  styleClass="config" update=":form:display" oncomplete="pv.show()"/>
+					<p:commandLink id="reloadButton"  styleClass="reload" update=":form:areas_table"/>
+				</div>
+			</div>
+			<div class="portlet-body">
+			
+				<h:form id="form">
+					<p:dataTable id="areas_table" var="a" value="#{configurationService.findAllAreas()}" rowKey="#{a.info.uid}" selection="#{area.selected}" selectionMode="single">  
+				        <p:column headerText="Indentifiant">#{a.info.uid}</p:column>
+				        <p:column headerText="Zone" >#{a.info.label}</p:column>
+				   	</p:dataTable>  
+				  
+				    <p:dialog id="dialog" header="Area Details" widgetVar="pv" resizable="false" width="400" showEffect="clip" hideEffect="fold">  
+				        <h:panelGrid id="display" columns="2" cellpadding="4">  
+						    <p:panel id="panel" header="Nouvelle Zone">  
+							     <p:messages id="msgs"/>  
+							     <h:panelGrid columns="3">  
+							         <h:outputLabel for="area" value="Zone *" />  
+							         <p:inputText id="area" value="#{area.info.label}" label="Zone" required="true">  
+							             <f:validateLength minimum="2" />  
+							             <p:ajax update="msgArea" event="keyup" />  
+									</p:inputText>
+							         <p:message for="area" id="msgArea" display="icon"/>  
+							     	</h:panelGrid>  
+							     <p:commandButton id="btn" value="Save" update="panel,areas_table" actionListener="#{configurationService.createArea(area)}"/>
+							     </p:panel>					
+				        </h:panelGrid>
+				          
+				   	</p:dialog>  
+				</h:form>
+			</div>
+		</div>
+		</div>
+		<!-- END EXAMPLE TABLE PORTLET-->
+	</ui:define>
+</ui:composition>

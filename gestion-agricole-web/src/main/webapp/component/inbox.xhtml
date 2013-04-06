@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<li class="dropdown" id="header_inbox_bar">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<i class="icon-envelope-alt"></i>
+		<span class="badge">5</span>
+		</a>
+		<ul class="dropdown-menu extended inbox">
+			<li>
+				<p>You have 1 new messages</p>
+			</li>
+			<li>
+				<a href="#">
+				<span class="photo">
+					<h:graphicImage value="#{resource['images:armind.png']}"/>
+				</span>
+				<span class="subject">
+				<span class="from">BELWIDANE Jaafar</span>
+				<span class="time">2 hrs</span>
+				</span>
+				<span class="message">
+				Vivamus sed nibh auctor nibh congue nibh. auctor nibh
+				auctor nibh...
+				</span>  
+				</a>
+			</li>
+			<li class="external">
+				<a href="#">See all messages <i class="m-icon-swapright"></i></a>
+			</li>
+		</ul>
+	</li>
+</ui:composition>

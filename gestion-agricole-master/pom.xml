@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gestion-agricole</groupId>
+	<artifactId>gestion-agricole-master</artifactId>
+	<version>0.1</version>
+	<name>Gestion Agricole Master Project</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.version>0.0.1-SNAPSHOT</project.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<junit.version>4.11</junit.version>
+		<arquillian.version>1.0.2.Final</arquillian.version>
+			
+		<log4j.version>1.2.16</log4j.version>
+		<slf4j.version>1.6.4</slf4j.version>
+			
+		<jboss.version>7.1.1.Final</jboss.version>
+		<jboss.jee.version>3.0.1.Final</jboss.jee.version>
+		<jboss-javaee-6.0.version>1.0.0.Final</jboss-javaee-6.0.version>
+			
+		<hibernate.version>4.1.7.Final</hibernate.version>
+		<hibernate.validator.version>4.3.0.Final</hibernate.validator.version>
+		<jee.version>6.0</jee.version>
+		<ejb.version>3.1</ejb.version>
+		<jms.version>1.1</jms.version>
+			
+		<gwt.version>2.5.0-rc1</gwt.version>
+		<gwt-visualization.version>1.0.2</gwt-visualization.version>
+		<gwt-dnd.version>3.1.2</gwt-dnd.version>
+			
+		<spring.version>3.1.1.RELEASE</spring.version>
+			
+		<validation-api.version>1.0.0.GA</validation-api.version>
+		<org.xhtmlrenderer.version>9.0.1</org.xhtmlrenderer.version>
+		<jtidy.version>r938</jtidy.version>
+	
+		<mysql.version>5.1.21</mysql.version>
+			
+	<!-- 	<jasper.version>4.7.1</jasper.version> -->
+			
+		<skipTests>true</skipTests>
+	</properties>
+
+	<modules>
+		<module>../gestion-agricole-common</module>
+		<module>../gestion-agricole-jpa</module>
+		<module>../gestion-agricole-client</module>
+		<module>../gestion-agricole-ejb</module>
+		<module>../gestion-agricole-web</module>
+		<module>../gestion-agricole-ear</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-web-api</artifactId>
+				<version>${jee.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee-6.0</artifactId>
+				<version>${jboss.jee.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.jms</groupId>
+				<artifactId>jms</artifactId>
+				<version>${jms.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${arquillian.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate</groupId> -->
+			<!-- <artifactId>hibernate-validator</artifactId> -->
+			<!-- <version>${hibernate.validator.version}</version> -->
+			<!-- </dependency> -->
+
+			<!-- <dependency> -->
+			<!-- <groupId>javax.validation</groupId> -->
+			<!-- <artifactId>validation-api</artifactId> -->
+			<!-- <version>${validation-api.version}</version> -->
+			<!-- </dependency> -->
+
+<!-- 			<dependency> -->
+<!-- 				<groupId>com.google.gwt.google-apis</groupId> -->
+<!-- 				<artifactId>gwt-visualization</artifactId> -->
+<!-- 				<version>${gwt-visualization.version}</version> -->
+<!-- 			</dependency> -->
+
+			<!-- PDF Generation -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.xhtmlrenderer</groupId> -->
+<!-- 				<artifactId>flying-saucer-pdf</artifactId> -->
+<!-- 				<version>${org.xhtmlrenderer.version}</version> -->
+<!-- 			</dependency> -->
+
+			<!-- HTML to XHTML -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>net.sf.jtidy</groupId> -->
+<!-- 				<artifactId>jtidy</artifactId> -->
+<!-- 				<version>${jtidy.version}</version> -->
+<!-- 			</dependency> -->
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.7.1</version>
+					<configuration>
+						<skipTests>${skipTests}</skipTests>
+						<parallel>methods</parallel>
+						<threadCount>6</threadCount>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>gwt-maven</id>
+			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo</url>
+		</repository>
+		<repository>
+			<id>thirdparty-uploads</id>
+			<name>JBoss Thirdparty Uploads</name>
+			<url>http://repository.jboss.org/nexus/content/repositories/thirdparty-uploads</url>
+		</repository>
+		<!-- <repository> -->
+		<!-- <id>smartclient</id> -->
+		<!-- <name>smartclient.com</name> -->
+		<!-- <url>http://www.smartclient.com/maven2</url> -->
+		<!-- </repository> -->
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Codehaus repository</id>
+			<url>http://repository.codehaus.org/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>gwt-maven</id>
+			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

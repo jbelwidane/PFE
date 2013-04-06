@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:outputScript library="scripts" name="jquery-1.8.3.min.js" target="head"/>
+	<h:outputScript library="scripts" name="breakpoints.js" target="head"/>
+	<h:outputScript library="scripts" name="jquery-ui-1.9.2.custom.min.js" target="head"/>
+	<h:outputScript library="scripts" name="bootstrap.min.js" target="head"/>
+	<h:outputScript library="scripts" name="jquery.blockui.js" target="head"/>
+	<h:outputScript library="scripts" name="jquery.uniform.min.js" target="head"/>
+	<h:outputScript library="scripts" name="chosen.jquery.min.js" target="head"/>
+	<h:outputScript library="scripts" name="jquery.dataTables.js" />
+	<h:outputScript library="scripts" name="DT_bootstrap.js" />
+	<!-- ie8 fixes -->
+	<!--[if lt IE 9]>
+	<script src="resources/css/js/excanvas.js"></script>
+	<script src="resources/css/js/respond.js"></script>
+	<![endif]-->
+	<h:outputScript library="scripts" name="app.js" />		
+	<script>
+		jQuery(document).ready(function() {			
+			// initiate layout and plugins
+			App.setPage('calendar');
+			App.init();
+		});
+	</script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-37564768-1']);
+	  _gaq.push(['_setDomainName', 'keenthemes.com']);
+	  _gaq.push(['_setAllowLinker', true]);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+		
+</ui:composition>

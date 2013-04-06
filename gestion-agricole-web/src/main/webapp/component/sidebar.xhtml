@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div class="page-sidebar nav-collapse collapse">
+		<div class="slide hide">
+			<i class="icon-angle-left"></i>
+		</div>
+		<h:form class="sidebar-search" >
+			<div class="input-box">
+				<input type="text" class="" placeholder="Search" />
+				<input type="button" class="submit" value=" " />
+			</div>
+		</h:form>
+		<div class="clearfix"></div>
+		<ul>
+			<li class="#{currentMenu == 'home' ? 'active' : ''}">
+				<a href="home.jsf">
+					<i class="icon-home"></i>Home
+					<span class="#{currentMenu == 'home' ? 'selected' : ''}"></span>
+				</a>
+			</li>
+			<li class="has-sub #{currentMenu == 'configuration' ? 'active' : ''}">
+				<a href="javascript:;" class="">
+					<i class="icon-briefcase"></i> Parametres 
+					<span class="#{currentMenu == 'configuration' ? 'selected' : ''}"></span>
+				</a>
+				<ul class="sub">
+					<li class="#{currentPage == 'province' ? 'active' : ''}">
+						<a class="" href="province.jsf">Province</a>
+					</li>
+					<li class="#{currentPage == 'area' ? 'active' : ''}">
+						<a class="" href="area.jsf">Zone</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</ui:composition>

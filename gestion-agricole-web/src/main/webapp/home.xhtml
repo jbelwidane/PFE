@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default/template.xhtml">
+
+	<ui:define name="notifications">
+<!-- 		<ui:include src="component/notifications.xhtml" /> -->
+	</ui:define>
+	<ui:define name="inbox">
+<!-- 		<ui:include src="component/inbox.xhtml" /> -->
+	</ui:define>
+	<ui:define name="tasks">
+<!-- 		<ui:include src="component/tasks.xhtml" /> -->
+	</ui:define>
+	<ui:define name="account">
+		<ui:include src="component/account.xhtml" />
+	</ui:define>
+	<ui:define name="sidebar">
+		<ui:include src="component/sidebar.xhtml" >
+			<ui:param name="currentMenu" value="home" />
+			<ui:param name="currentPage" value="" />
+		</ui:include>
+	</ui:define>
+	<ui:define name="title">
+		<ui:include src="component/title.xhtml">
+			<ui:param name="title" value="Accueil" />
+			<ui:param name="subTitle" value="" />
+		</ui:include>
+	</ui:define>
+
+	<ui:define name="breadcrumb">
+		<ui:include src="component/breadcrumb.xhtml" />
+	</ui:define>
+
+	<ui:define name="content">
+	</ui:define>
+
+</ui:composition>

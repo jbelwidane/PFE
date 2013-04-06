@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="GestionAgricoleAS" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>jdbc/__default</jta-data-source>
+		<class>com.gestionagricole.entity.CulturalOperation</class>
+		<class>com.gestionagricole.entity.CulturalMethode</class>
+		<class>com.gestionagricole.entity.Pedology</class>
+		<class>com.gestionagricole.entity.LargeculturalVariety</class>
+		<class>com.gestionagricole.entity.Temperature</class>
+		<class>com.gestionagricole.entity.Province</class>
+		<class>com.gestionagricole.entity.ArboriculturalPlan</class>
+		<class>com.gestionagricole.entity.MeasuringUnit</class>
+		<class>com.gestionagricole.entity.LargeculturalOperation</class>
+		<class>com.gestionagricole.entity.Operation</class>
+		<class>com.gestionagricole.entity.Town</class>
+		<class>com.gestionagricole.entity.UserAccount</class>
+		<class>com.gestionagricole.entity.OperationType</class>
+		<class>com.gestionagricole.entity.CulturalType</class>
+		<class>com.gestionagricole.entity.Area</class>
+		<class>com.gestionagricole.entity.LargeculturalPlan</class>
+		<class>com.gestionagricole.entity.CulturalPlan</class>
+		<class>com.gestionagricole.entity.Property</class>
+		<class>com.gestionagricole.entity.ArboriculturalVariety</class>
+		<class>com.gestionagricole.entity.Climatology</class>
+		<class>com.gestionagricole.entity.ArboriculturalOperation</class>
+		<class>com.gestionagricole.entity.FarmUnit</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+<!-- 			<property name="hibernate.connection.provider_class" -->
+<!-- 				value="com.gestioncommerciale.multitenancy.MultiTenantConnectionProvider" /> -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- <property name="jboss.as.jpa.providerModule" value="hibernate3-bundled" 
+				/> -->
+		</properties>
+
+	</persistence-unit>
+
+
+</persistence>

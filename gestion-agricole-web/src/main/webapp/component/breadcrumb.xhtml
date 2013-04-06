@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home"></i> 
+			<a href="home.jsf">Home</a>
+			<i class="#{menuPath == '' ? '' : 'icon-angle-right'}" />
+		</li>
+		<li>
+			<a href="#{menuPath}">#{menuName}</a> 
+			<i class="#{pagePath == '' ? '' : 'icon-angle-right'}"></i>
+		</li>
+		<li>
+			<a href="#{pagePath}">#{pageName}</a>
+		</li>
+	</ul>
+
+</ui:composition>

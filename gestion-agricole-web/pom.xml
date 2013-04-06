@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>gestion-agricole</groupId>
+		<artifactId>gestion-agricole-master</artifactId>
+		<relativePath>../gestion-agricole-master/pom.xml</relativePath>
+		<version>0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>gestion-agricole-web</artifactId>
+	<name>Gestion Agricole Web Project</name>
+	<packaging>war</packaging>
+	<version>${project.version}</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<weld.extensions.version>1.0.0-CR2</weld.extensions.version>
+
+	</properties>
+
+	<repositories>
+		<!-- Several key Java EE APIs and RIs are missing from the Maven Central 
+			Repository -->
+		<!-- The goal is to eventually eliminate the reliance on the JBoss repository -->
+		<repository>
+			<id>repository.jboss.org</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/maven2</url>
+		</repository>
+
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Import scope will provide versions for dependencies below. -->
+			<dependency>
+				<groupId>org.jboss.weld</groupId>
+				<artifactId>weld-extensions-bom</artifactId>
+				<version>${weld.extensions.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<!-- Project Internal Dependecies -->
+		<dependency>
+			<groupId>gestion-agricole</groupId>
+			<artifactId>gestion-agricole-client</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>gestion-agricole</groupId>
+			<artifactId>gestion-agricole-ejb</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- CDI (JSR-299) -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+		</dependency>
+		<!-- Common annotations (e.g., @PostConstruct, @PreDestroy, @Generated, 
+			@Resource) -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Bean Validation (JSR-303) -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Bean Validation Implementation -->
+		<!-- Provides portable constraints such as @NotEmpty, @Email and @Url -->
+		<!-- JSF -->
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.5</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${artifactId}</finalName>
+		<plugins>
+			<!-- Compiler plugin enforces Java 1.6 compatibility -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<!-- Eclipse plugin can force download of source and JavaDoc jars -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<wtpversion>2.0</wtpversion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
